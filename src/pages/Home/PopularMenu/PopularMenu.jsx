@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import SectionTitle from "../../../components/SectionTitle";
 import MenuItems from "../../Shared/MenuItems/MenuItems";
+import OutlineButton from "../../../components/OutlineButton";
 
 const PopularMenu = () => {
     const [menu, setMenu] = useState([]);
@@ -17,13 +18,13 @@ const PopularMenu = () => {
     return (
         <section className="mb-32">
             <SectionTitle heading="from our menu" subHeading="Popular Items"  />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10 mb-12">
                 {
                     menu.map(item=> <MenuItems key={item._id} item={item} />)
                 }
             </div>
-            <div className="text-xl py-4 border-b-4 border-black w-fit mx-auto">
-                view full menu
+            <div className="text-center">
+                <OutlineButton>View Full Menu</OutlineButton>
             </div>
         </section>
     );
