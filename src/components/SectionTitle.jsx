@@ -1,4 +1,3 @@
-
 const SectionTitle = ({ heading, subHeading }) => {
     return (
         <div className="md:w-1/3 mx-auto">
