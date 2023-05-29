@@ -1,12 +1,16 @@
+import Progress from "../../../components/Progress";
 import FoodCard from "../../Shared/FoodCard/FoodCard";
 
-const FoodCategory = ({ items }) => {
+const FoodCategory = ({ loading, items }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-      {items.map((item) => (
-        <FoodCard key={item._id} item={item} />
-      ))}
-    </div>
+    <>
+      { loading && <Progress /> }
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+        {items.map((item) => (
+          <FoodCard key={item._id} item={item} />
+        ))}
+      </div>
+    </>
   );
 };
 

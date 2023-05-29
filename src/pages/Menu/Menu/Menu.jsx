@@ -10,7 +10,7 @@ import saladImg from '../../../assets/menu/salad-bg.jpg'
 import soupImg from '../../../assets/menu/soup-bg.jpg'
 
 const Menu = () => {
-    const [menu] = useMenu();
+    const [ menu, loading ] = useMenu();
     const offers = menu.filter( item => item.category === 'offered' );
     const desserts = menu.filter( item => item.category === 'dessert' );
     const pizzas = menu.filter( item => item.category === 'pizza' );
@@ -33,19 +33,19 @@ const Menu = () => {
             </div>
             <div className=' mx-12 lg:mx-28'>
                 <SectionTitle heading="today's offer" subHeading="Don't miss" />
-                <MenuCategory items={offers} />
+                <MenuCategory loading={loading} items={offers} />
             </div>
             <div className=' mx-12 lg:mx-28'>
-                <MenuCategory items={desserts} img={dessertImg} title="desserts" content={dessertContent} />
+                <MenuCategory loading={loading} items={desserts} img={dessertImg} title="desserts" content={dessertContent} />
             </div>
             <div className=' mx-12 lg:mx-28'>
-                <MenuCategory items={pizzas} img={pizzaImg} title="pizza" content={pizzaContent} />
+                <MenuCategory loading={loading} items={pizzas} img={pizzaImg} title="pizza" content={pizzaContent} />
             </div>
             <div className=' mx-12 lg:mx-28'>
-                <MenuCategory items={salads} img={saladImg} title="salads" content={saladContent} />
+                <MenuCategory loading={loading} items={salads} img={saladImg} title="salads" content={saladContent} />
             </div>
             <div className=' mx-12 lg:mx-28'>
-                <MenuCategory items={soups} img={soupImg} title="soups" content={soupContent} />
+                <MenuCategory loading={loading} items={soups} img={soupImg} title="soups" content={soupContent} />
             </div>
         </section>
     );

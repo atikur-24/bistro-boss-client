@@ -13,7 +13,7 @@ const Order = () => {
     const initialIndex = categories.indexOf(category)
 
     const [tabIndex, setTabIndex] = useState(initialIndex);
-    const [menu] = useMenu();
+    const [ menu, loading ] = useMenu();
 
     const desserts = menu.filter( item => item.category === 'dessert' );
     const pizzas = menu.filter( item => item.category === 'pizza' );
@@ -35,19 +35,19 @@ const Order = () => {
                     <Tab>DRINKS</Tab>
                 </TabList>
                 <TabPanel>
-                    <FoodCategory items={salads} />
+                    <FoodCategory loading={loading} items={salads} />
                 </TabPanel>
                 <TabPanel>
-                    <FoodCategory items={pizzas} />
+                    <FoodCategory loading={loading} items={pizzas} />
                 </TabPanel>
                 <TabPanel>
-                    <FoodCategory items={soups} />
+                    <FoodCategory loading={loading} items={soups} />
                 </TabPanel>
                 <TabPanel>
-                    <FoodCategory items={desserts} />
+                    <FoodCategory loading={loading} items={desserts} />
                 </TabPanel>
                 <TabPanel>
-                    <FoodCategory items={drinks} />
+                    <FoodCategory loading={loading} items={drinks} />
                 </TabPanel>
             </Tabs>
             </div>
