@@ -6,6 +6,7 @@ import { useState } from 'react';
 import useMenu from '../../../hooks/useMenu/useMenu';
 import FoodCategory from '../FoodCategory/FoodCategory';
 import { useParams } from 'react-router-dom';
+import DynamicTitle from '../../../components/DynamicTitle/DynamicTitle';
 
 const Order = () => {
     const categories = ['salads', 'pizza', 'soups', 'desserts', 'drinks']
@@ -21,9 +22,11 @@ const Order = () => {
     const soups = menu.filter( item => item.category === 'soup' );
     const drinks = menu.filter( item => item.category === 'drinks' );
 
-
     return (
         <section>
+            <DynamicTitle>
+                Order
+            </DynamicTitle>
             <Cover img={OrderCover} title="our order" content="Would you like to try this" />
             <div className='mx-12 lg:mx-28 my-32'>
             <Tabs defaultIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>

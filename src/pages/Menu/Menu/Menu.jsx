@@ -1,4 +1,3 @@
-import { Helmet } from 'react-helmet-async';
 import Cover from '../../Shared/Cover/Cover';
 import menuImg from '../../../assets/menu/banner3.jpg';
 import useMenu from '../../../hooks/useMenu/useMenu';
@@ -8,6 +7,7 @@ import pizzaImg from '../../../assets/menu/pizza-bg.jpg'
 import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
 import saladImg from '../../../assets/menu/salad-bg.jpg'
 import soupImg from '../../../assets/menu/soup-bg.jpg'
+import DynamicTitle from '../../../components/DynamicTitle/DynamicTitle';
 
 const Menu = () => {
     const [ menu, loading ] = useMenu();
@@ -25,9 +25,9 @@ const Menu = () => {
 
     return (
         <section className='space-y-12 mb-12'>
-            <Helmet>
-                <title>Bistro Boss | Menu</title>
-            </Helmet>
+            <DynamicTitle>
+                Menu
+            </DynamicTitle>
             <div>
                 <Cover img={menuImg} title={"our menu"} content={'WOULD YOU LIKE TO TRY DISH'} />
             </div>
