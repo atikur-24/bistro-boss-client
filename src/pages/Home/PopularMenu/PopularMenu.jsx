@@ -1,8 +1,8 @@
 import SectionTitle from "../../../components/SectionTitle";
 import MenuItems from "../../Shared/MenuItems/MenuItems";
 import OutlineButton from "../../../components/OutlineButton";
-import useMenu from "../../../hooks/useMenu/useMenu";
 import Progress from "../../../components/Progress";
+import useMenu from "../../../hooks/useMenu";
 
 const PopularMenu = () => {
     const [menu, loading] = useMenu();

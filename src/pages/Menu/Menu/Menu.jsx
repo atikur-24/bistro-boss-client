@@ -1,6 +1,5 @@
 import Cover from '../../Shared/Cover/Cover';
 import menuImg from '../../../assets/menu/banner3.jpg';
-import useMenu from '../../../hooks/useMenu/useMenu';
 import SectionTitle from '../../../components/SectionTitle';
 import MenuCategory from '../MenuCategory/MenuCategory';
 import pizzaImg from '../../../assets/menu/pizza-bg.jpg'
@@ -8,6 +7,7 @@ import dessertImg from '../../../assets/menu/dessert-bg.jpeg'
 import saladImg from '../../../assets/menu/salad-bg.jpg'
 import soupImg from '../../../assets/menu/soup-bg.jpg'
 import DynamicTitle from '../../../components/DynamicTitle/DynamicTitle';
+import useMenu from '../../../hooks/useMenu';
 
 const Menu = () => {
     const [ menu, loading ] = useMenu();

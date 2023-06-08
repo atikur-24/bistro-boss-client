@@ -1,9 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../providers/AuthProvider";
+import { FaShoppingCart } from 'react-icons/fa';
+import useCart from "../../../hooks/useCart";
 
 const Navbar = () => {
     const { user, logout } = useContext(AuthContext);
+    const [ cart ] = useCart();
 
     const handleLogout = () => {
         logout()
@@ -13,13 +16,18 @@ const Navbar = () => {
     
     const navItems = <>
             <li><Link to='/'>home</Link></li>
-            <li><Link to='/'>contact  us</Link></li>
             <li><Link to='/'>dashboard</Link></li>
             <li><Link to='/menu'>our menu</Link></li>
             <li><Link to='/order/salads'>our food</Link></li>
+            <li>
+                <Link className="btn gap-2" to='/dashboard/myCart'>
+                        <FaShoppingCart />
+                        <div className="badge badge-secondary">{cart?.length || 0}</div>
+                </Link>
+            </li>
             {user ? <button className="btn btn-ghost" onClick={handleLogout}>Logout</button> : <li><Link to='/login'>Login</Link></li>}
             { user && <div className="avatar">
-                <div className="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
                     <img src={user?.photoURL} />
                 </div>
             </div>}
@@ -37,7 +45,7 @@ const Navbar = () => {
                 </div>
                 <div>
                     <p className="uppercase text-3xl tracking-wide font-bold">Bistro Boss</p>
-                    <p className="text-2xl font-bold tracking-widest uppercase">restaurant</p>
+                    <p className="text-2xl tracking-[6px] uppercase">restaurant</p>
                 </div>
             </div>
             <div className="navbar-center hidden lg:flex">

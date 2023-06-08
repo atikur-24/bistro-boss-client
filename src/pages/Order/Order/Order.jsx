@@ -3,10 +3,10 @@ import OrderCover from '../../../assets/shop/banner2.jpg'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import { useState } from 'react';
-import useMenu from '../../../hooks/useMenu/useMenu';
 import FoodCategory from '../FoodCategory/FoodCategory';
 import { useParams } from 'react-router-dom';
 import DynamicTitle from '../../../components/DynamicTitle/DynamicTitle';
+import useMenu from '../../../hooks/useMenu';
 
 const Order = () => {
     const categories = ['salads', 'pizza', 'soups', 'desserts', 'drinks']

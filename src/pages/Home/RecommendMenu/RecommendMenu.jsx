@@ -1,7 +1,7 @@
 import SectionTitle from "../../../components/SectionTitle";
 import FoodCard from "../../Shared/FoodCard/FoodCard";
-import useMenu from "../../../hooks/useMenu/useMenu";
 import Progress from "../../../components/Progress";
+import useMenu from "../../../hooks/useMenu";
 
 const RecommendMenu = () => {
     const [menu, loading] = useMenu();
