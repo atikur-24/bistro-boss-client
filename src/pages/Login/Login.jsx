@@ -5,6 +5,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { useContext, useEffect, useRef, useState } from 'react';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../providers/AuthProvider';
+import SocialLogin from '../../components/SocialLogin';
 
 const Login = () => {
     const { login } = useContext(AuthContext);
@@ -92,13 +93,8 @@ const Login = () => {
                                         <input disabled={disabled} type="submit" value="Sign In" className='btn text-white bg-[#D1A054] btn-warning' />
                                     </div>
                                     <p className='text-[#D1A054] font-medium text-xl text-center'>New here? <Link to='/signUp' className='font-bold'>Create a New Account</Link></p>
-                                    <p className='font-medium text-xl text-center'>Or Sign In With</p>
-                                    <div className='flex justify-center gap-4'>
-                                        <img alt="google" className='bg-[#F5F5F8] p-4 rounded-full cursor-pointer' />
-                                        <img alt="google" className='bg-[#F5F5F8] p-4 rounded-full cursor-pointer' />
-                                        <img alt="google" className='bg-[#F5F5F8] p-4 rounded-full cursor-pointer' />
-                                    </div>
                                 </form>
+                                <SocialLogin />
                             </div>
                         </div>
                     </div>

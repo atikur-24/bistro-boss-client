@@ -1,12 +1,14 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import signUpImg from "../../assets/others/authentication2.png";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
+import SocialLogin from "../../components/SocialLogin";
 
 const SignUp = () => {
   const { createUser, updateUserProfile } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm();
 
@@ -14,12 +16,27 @@ const SignUp = () => {
       createUser(data.email, data.password)
         .then(() => {
           updateUserProfile(data.name, data.photoURL)
-          Swal.fire(
-            'Success!',
-            'Your account has been created successfully!',
-            'success'
-          );
-          reset();
+          const saveUser = {name: data.name, email: data.email}
+          fetch('http://localhost:5000/users', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(saveUser)
+          })
+            .then(res => res.json())
+            .then(data => {
+              if(data.insertedId) {
+                reset();
+                Swal.fire(
+                  'Success!',
+                  'Your account has been created successfully!',
+                  'success'
+                );
+                navigate('/');
+              }
+            })
+          
         })
         .catch(error => console.error(error.message))
   };
@@ -107,24 +124,8 @@ const SignUp = () => {
                       Go to login
                     </Link>
                   </p>
-                  <p className="font-medium text-xl text-center">
-                    Or Sign In With
-                  </p>
-                  <div className="flex justify-center gap-4">
-                    <img
-                      alt="google"
-                      className="bg-[#F5F5F8] p-4 rounded-full cursor-pointer"
-                    />
-                    <img
-                      alt="google"
-                      className="bg-[#F5F5F8] p-4 rounded-full cursor-pointer"
-                    />
-                    <img
-                      alt="google"
-                      className="bg-[#F5F5F8] p-4 rounded-full cursor-pointer"
-                    />
-                  </div>
                 </form>
+                <SocialLogin />
               </div>
             </div>
           </div>

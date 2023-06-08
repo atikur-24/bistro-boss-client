@@ -28,7 +28,7 @@ const Navbar = () => {
             {user ? <button className="btn btn-ghost" onClick={handleLogout}>Logout</button> : <li><Link to='/login'>Login</Link></li>}
             { user && <div className="avatar">
                 <div className="w-12 h-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
-                    <img src={user?.photoURL} />
+                    <img title={user?.displayName} src={user?.photoURL} />
                 </div>
             </div>}
     </>

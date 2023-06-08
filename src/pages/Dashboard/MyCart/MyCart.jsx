@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const MyCart = () => {
     const [ cart, refetch ] = useCart();
     const totalPrice = cart.reduce( (sum, item) => item.price + sum, 0 );
+    
     const handleDelete = item => {
         Swal.fire({
             title: 'Are you sure?',
@@ -45,7 +46,7 @@ const MyCart = () => {
             <div className="flex justify-evenly items-center my-5">
                 <h3 className="text-3xl font-bold">Total Orders: {cart.length}</h3>
                 <h3 className="text-3xl font-bold">Total Price: ${totalPrice}</h3>
-                <button className="btn btn-warning">Pay</button>
+                <button className="btn btn-warning bg-[#D1A054]">Pay</button>
             </div>
             <div className="overflow-x-auto">
             <table className="table w-full">
@@ -75,7 +76,7 @@ const MyCart = () => {
                     <td>{item.name}</td>
                     <td className="">${item.price}</td>
                     <td>
-                        <button onClick={ () => handleDelete(item)} className="btn btn-error text-white"> <FaTrashAlt /> </button>
+                        <button onClick={ () => handleDelete(item)} className="btn bg-[#B91C1C] btn-error text-white"> <FaTrashAlt /> </button>
                     </td>
                 </tr>)
                 }
